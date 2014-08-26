@@ -5,3 +5,20 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Picture.create!(
+	:title=>"The walking dead",
+	:artist=>"Rick Grimes",
+	:url=>"http://image-cdn.zap2it.com/photogallery/images/zap-the-walking-dead-season-4-pics-039"
+)
+
+Picture.create!(
+	:title=>"Breaking Bad",
+	:artist=>"Walter White",
+	:url=>"http://cdn.screenrant.com/wp-content/uploads/breaking-bad-season-5-king.jpg"
+)
+
+Picture.create!(
+	:title=>"Breaking Bad",
+	:artist=>"Walter White",
+	:url=>"http://cdn.screenrant.com/wp-content/uploads/breaking-bad-season-5-king.jpg"
+)

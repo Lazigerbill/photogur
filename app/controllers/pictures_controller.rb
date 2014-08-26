@@ -1,46 +1,28 @@
 class PicturesController < ApplicationController
 	def index
-		@pictures = [{
-			:title=>"The walking dead",
-			:author=>"Rick Grimes",
-			:url=>"http://image-cdn.zap2it.com/photogallery/images/zap-the-walking-dead-season-4-pics-039"
-	},
-			{
-			:title=>"Breaking Bad",
-			:author=>"Walter White",
-			:url=>"http://cdn.screenrant.com/wp-content/uploads/breaking-bad-season-5-king.jpg"
-	},
-			{
-			:title=>"Mad Men",
-			:author=>"Don Drapper",
-			:url=>"http://cdn.sheknows.com/articles/2013/05/mad-men-s6-e7-don.jpg"
-	}]		
+		@pictures = Picture.all
 	end
 	def show
-		@pictures = [{
-					:title=>"The walking dead",
-					:author=>"Rick Grimes",
-					:url=>"http://image-cdn.zap2it.com/photogallery/images/zap-the-walking-dead-season-4-pics-039"
-			},
-					{
-					:title=>"Breaking Bad",
-					:author=>"Walter White",
-					:url=>"http://cdn.screenrant.com/wp-content/uploads/breaking-bad-season-5-king.jpg"
-			},
-					{
-					:title=>"Mad Men",
-					:author=>"Don Drapper",
-					:url=>"http://cdn.sheknows.com/articles/2013/05/mad-men-s6-e7-don.jpg"
-			}]		
-			@pic=@pictures[params[:id].to_i]
+		@pic = Picture.find(params[:id])
 	end
 
 	def new
-		
+		@pic = Picture.new
 	end
 
 	def create
-		render :text => "Saving a picture. URL: #{params[:url]}, Title: #{params[:title]}, Author: #{params[:author]}"
+		@pic = Picture.new(pic_params)
+		if @pic.save
+			redirect_to pictures_url
+		else
+		render :new #i.e. new.html.erb
+		end
+	end
+	
+	private
+	def pic_params
+		params.require(:picture).permit(:artist, :title, :url)
 	end
 
 end
+

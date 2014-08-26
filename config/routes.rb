@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+root :to => 'pictures#index'
 get 'pictures' => 'pictures#index'
+get 'pictures/new' => 'pictures#new'
+post 'pictures' => 'pictures#create'
 get 'pictures/:id' => 'pictures#show', as: "picture" #as: picture_path
-post 'pictures/new' => 'pictures#create'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
