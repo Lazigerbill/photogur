@@ -1,7 +1,7 @@
-<h1>Add a picture</h1>
+<h1>Add a profile</h1>
 <%=form_for @pic do |f|%>
 	<p>
-		<%=f.label "title"%></br>
+		<%=f.label "title"%>
 		<%=f.text_field "title"%>
 	</p>
 	<p>
@@ -16,5 +16,9 @@
 		<%=f.submit "Save"%>
 	</p>
 <%end%>
+
+<% if @pic.save==false %>
+<p class="error">&#8226 Entry invalid, please enter again</p>
+<% end %>
 
 <%=link_to "Back to Pictures", pictures_url%>

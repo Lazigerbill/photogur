@@ -4,10 +4,18 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
 root :to => 'pictures#index'
-get 'pictures' => 'pictures#index'
-get 'pictures/new' => 'pictures#new'
-post 'pictures' => 'pictures#create'
-get 'pictures/:id' => 'pictures#show', as: "picture" #as: picture_path
+resources :pictures
+
+#     Prefix Verb   URI Pattern                  Controller#Action
+#         root GET    /                            pictures#index
+#     pictures GET    /pictures(.:format)          pictures#index
+#              POST   /pictures(.:format)          pictures#create
+#  new_picture GET    /pictures/new(.:format)      pictures#new
+# edit_picture GET    /pictures/:id/edit(.:format) pictures#edit
+#      picture GET    /pictures/:id(.:format)      pictures#show
+#              PATCH  /pictures/:id(.:format)      pictures#update
+#              PUT    /pictures/:id(.:format)      pictures#update
+#              DELETE /pictures/:id(.:format)      pictures#destroy
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

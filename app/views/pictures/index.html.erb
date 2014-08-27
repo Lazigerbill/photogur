@@ -2,18 +2,16 @@
 <h2>Pictures<%=@pictures.length%></h2>
 
 <%=link_to "New Pictures", "pictures/new"%>
+<br></br>
 
 <%@pictures.each do |pic|%>
-<p><%=pic[:title]%>, <%=pic[:artist]%></p>
-<%=link_to image_tag(pic.url), "/pictures/#{pic.id}"%>
+<div class="profile_box">
+<%=link_to image_tag(pic.url, {:class=>"pic"}), "/pictures/#{pic.id}"%>
+<p>Show title: <%=pic[:title]%></p> 
+<p>Character: <%=pic[:artist]%></p>
+</div>
 <%end%>
+
 
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic aut vel unde assumenda cumque quasi ipsam vitae minima, consequuntur repudiandae facilis deleniti eum modi magnam est fuga numquam libero. Magni.</p>
-
-<h2>Pictures</h2>
-<%=@pictures.each do |key|%>
-<p><%=key[:title]%>
-<%=key[:artist]%>
-<img class="pic" src="<%=key[:url]%>"></p>
-<%end%>
 
