@@ -1,0 +1,7 @@
+<div class="profile_box">
+	<%=link_to image_tag(picture.url, {:class=>"pic"}), "/pictures/#{picture.id}"%>
+	<div class="desc">
+		<p><b>Show title:</b> <%=picture.title%></p> 
+		<p><b>Character:</b> <%=picture.character%></p>
+	</div>
+</div>

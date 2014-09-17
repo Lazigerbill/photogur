@@ -1,7 +1,7 @@
 <h1>Add a profile</h1>
-<%=form_for @pic do |f|%>
+<%=form_for @picture do |f|%>
 	<p>
-		<%=f.label "title"%>
+		<%=f.label "title"%></br>
 		<%=f.text_field "title"%>
 	</p>
 	<p>
@@ -17,7 +17,7 @@
 	</p>
 <%end%>
 
-<% if @pic.save==false %>
+<% if @picture.save==false %>
 <p class="error">&#8226 Entry invalid, please enter again</p>
 <% end %>
 

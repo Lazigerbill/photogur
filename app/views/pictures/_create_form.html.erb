@@ -1,0 +1,19 @@
+<%=form_for @picture do |f|%>
+	<p>
+		<%=f.label "title", "Show title"%><br>
+		<%=f.text_field "title"%>
+	</p>
+	<p>
+		<%=f.label "character", "Character Name"%><br>
+		<%=f.text_field "character"%>
+	</p>
+	<p>
+		<%=f.label "url", "Image URL"%><br>
+		<%=f.text_area "url"%>
+	</p>
+	<p>
+		<%=f.submit "Save"%>
+	</p>
+<%end%>
+
+

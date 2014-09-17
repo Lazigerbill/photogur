@@ -1,17 +1,31 @@
-<h1>Bill's PhotoGur</h1>
-<h2>Pictures<%=@pictures.length%></h2>
+<div class = "main_body">
+	<h1>Bill's PhotoGur</h1>
+	<h3>There are <%=@pictures.length%> characters in the database currently.</h3>
 
-<%=link_to "New Pictures", "pictures/new"%>
-<br></br>
 
-<%@pictures.each do |pic|%>
-<div class="profile_box">
-<%=link_to image_tag(pic.url, {:class=>"pic"}), "/pictures/#{pic.id}"%>
-<p>Show title: <%=pic[:title]%></p> 
-<p>Character: <%=pic[:character]%></p>
+
+	<div id="pictures">
+		<%= render(@pictures) || "The character you are searching does not exist!" %>
+	</div>
+	</div>
 </div>
-<%end%>
+<aside class = "menu">
+	<%= form_tag pictures_path, method: :get, authentication: false, id: 'search-form' do %>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search" %>
+	<% end %>
+	
+	<h3>Add a character</h3>
+		<% if flash[:alert] %>
+			<div class="alert">
+				<%= flash[:alert] %>
+			</div>
+		<% end %>
+		<%= render "create_form" %>
+		
+</aside>
 
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic aut vel unde assumenda cumque quasi ipsam vitae minima, consequuntur repudiandae facilis deleniti eum modi magnam est fuga numquam libero. Magni.</p>
+
+
 

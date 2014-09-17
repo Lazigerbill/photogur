@@ -1,5 +1,17 @@
-<p><%=@pic[:title]%></p>
-<p><%=@pic[:character]%></p>
-<img class="pic" src="<%=@pic[:url]%>" alt="">
+
+<%=form_for @picture do |f| %>
+
+<p><%=f.label :title %></br>
+<%=f.text_field :title %></p>
+<p><%=f.label :character %></br>
+<%=f.text_field :character %></p>
+<p><%=f.label :url %></br>
+<%=f.text_field :url%></p>
+<%=f.submit "Update Profile"%>
+
+<% end %> 
+<img class="pic" src="<%=@picture[:url]%>" alt="">
 </br>
-<%=link_to "Back to main", pictures_url%>
+<%=link_to "Back to main", pictures_url %>
+
+<%= link_to "Delete", @picture, :method => :delete, :confirm => "Are you sure you want to delete this picture?" %>
